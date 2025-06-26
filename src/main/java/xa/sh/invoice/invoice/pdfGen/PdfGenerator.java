@@ -297,12 +297,14 @@ public class PdfGenerator {
         // Item rows
         BigDecimal grandTotal = BigDecimal.ZERO;
         for (ItemDto item : dto.getItems()) {
-            itemTable.addCell(new PdfPCell(new Phrase(item.getItemName(), normalFont))).setPaddingLeft(5f);
-            itemTable.addCell(new PdfPCell(new Phrase(String.valueOf(item.getQuantity()), normalFont)))
-                    .setPaddingLeft(5f);
-            itemTable.addCell(new PdfPCell(new Phrase(String.valueOf(item.getPrice()), normalFont))).setPaddingLeft(5f);
-            itemTable.addCell(new PdfPCell(new Phrase(String.valueOf(item.getDiscount()), normalFont)))
-                    .setPaddingLeft(5f);
+            itemTable.addCell(new PdfPCell(new Phrase(item.getItemName(), normalFont)));
+                    //.setPaddingLeft(5f);
+            itemTable.addCell(new PdfPCell(new Phrase(String.valueOf(item.getQuantity()), normalFont)));
+                    //.setPaddingLeft(5f);
+            itemTable.addCell(new PdfPCell(new Phrase(String.valueOf(item.getPrice()), normalFont)));;
+                    //.setPaddingLeft(5f);
+            itemTable.addCell(new PdfPCell(new Phrase(String.valueOf(item.getDiscount()), normalFont)));
+                    //.setPaddingLeft(5f);
 
             BigDecimal amount = BigDecimal.valueOf(item.getPrice()).multiply(BigDecimal.valueOf(item.getQuantity()));
             BigDecimal discount = amount
@@ -310,8 +312,8 @@ public class PdfGenerator {
             BigDecimal finalAmount = amount.subtract(discount);
             grandTotal = grandTotal.add(finalAmount);
 
-            itemTable.addCell(new PdfPCell(new Phrase("₹" + finalAmount.toPlainString(), normalFont)))
-                    .setPaddingLeft(5f);
+            itemTable.addCell(new PdfPCell(new Phrase("₹" + finalAmount.toPlainString(), normalFont)));
+                    //.setPaddingLeft(5f);
         }
 
         // Grand Total Row

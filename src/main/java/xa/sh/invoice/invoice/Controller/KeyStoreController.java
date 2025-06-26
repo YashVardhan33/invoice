@@ -22,6 +22,7 @@ import xa.sh.invoice.invoice.Certificate.SelfSignedCertGenerator;
 
 @RestController
 @RequestMapping("/api/keystore")
+// @CrossOrigin(origins = "https://invoigen.netlify.app/")
 public class KeyStoreController {
 
     @GetMapping("/generate")

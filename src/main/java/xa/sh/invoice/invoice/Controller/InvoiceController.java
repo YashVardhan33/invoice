@@ -26,6 +26,7 @@ import xa.sh.invoice.invoice.pdfGen.PdfGenerator;
 
 @RestController
 @RequestMapping("/api")
+// @CrossOrigin(origins = "https://invoigen.netlify.app/")
 public class InvoiceController {
 
     private final EmailSender emailSender;
